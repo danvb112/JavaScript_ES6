@@ -3,4 +3,12 @@
 
 - A função do Babel é pegar o código escrito com as novas funcionalidades e converter num código que todos os navegadores entendam.
 
+- O arquivo 'package.json' vai armazenar as informações de dependecias de nossa aplicação como por exemplo o babel. As dependencias podem ser instaladas pelo proprio terminal.
+
+- A dependencia 'babel/cli' vai nos dar a oportunidade de trabalhar com a interface de linha de comando do babel. A dependencia 'babel/preset-env' vai entender qual ambiente em que se está trabalhando como o navegador por exemplo e vai converter as fitures do ES6/7/8 para o que os navegadores entendem.
+
+- para configurar o bable é necessário criar um arquivo chamado '.babelrc' criando um objeto e colocando o preset desejado.
+
+- Os scripts dentro do arquivo 'package.json' são formas de a gente executar comandos dentro do nosso terminal que fazem mais de alguma coisa como por exemplo, gerar um arquivo bundle.js que é um arquivo com os códigos já convertidos para uma forma que os navegadores entendam.
+
 - 
