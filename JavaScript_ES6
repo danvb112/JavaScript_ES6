@@ -11,4 +11,10 @@
 
 - Os scripts dentro do arquivo 'package.json' são formas de a gente executar comandos dentro do nosso terminal que fazem mais de alguma coisa como por exemplo, gerar um arquivo bundle.js que é um arquivo com os códigos já convertidos para uma forma que os navegadores entendam.
 
-- 
+- Com o ES6 agora é possível usar classes no JavaScript e as classes possuem todas as mesmas propriedades de classes como em outras linguagens de programação como método construtor, além de possuir herança de classes também, para usar herança é necessário usar o comando extends.
+
+- Quando se cria um método constructor em uma classe que herda outra classe é muito bom a gente chamar o método constructor da classe pai, usando pra isso o comando 'Super()' e a partir dai pode-se criar as novas propriedades.
+
+- Para se referenciar uma classe usa-se o 'new' porém é possível criar métodos estaticos da classe de forma a poder usa-los sem pra isso precisar usar o 'new', para isso existe o comando 'static' que pode ser usado antes de dar o nome da classe. Porém toda vez que a gente define um método como estatico, ele não enxerga o resto da classe.
+
+- A Diferença do var para o const é que a const não pdoe ter seu valor reatribuido mas, pode ter o valor dentro de objetos alterados (essa operação chama-se mutação). O Let é o comando utilizado para criar variáveis de escopo, ou seja, variáveis que só podem ser vista dentro do escopo em que ela foi criada
