@@ -17,4 +17,39 @@
 
 - Para se referenciar uma classe usa-se o 'new' porém é possível criar métodos estaticos da classe de forma a poder usa-los sem pra isso precisar usar o 'new', para isso existe o comando 'static' que pode ser usado antes de dar o nome da classe. Porém toda vez que a gente define um método como estatico, ele não enxerga o resto da classe.
 
-- A Diferença do var para o const é que a const não pdoe ter seu valor reatribuido mas, pode ter o valor dentro de objetos alterados (essa operação chama-se mutação). O Let é o comando utilizado para criar variáveis de escopo, ou seja, variáveis que só podem ser vista dentro do escopo em que ela foi criada
+- A Diferença do var para o const é que a const não pdoe ter seu valor reatribuido mas, pode ter o valor dentro de objetos alterados (essa operação chama-se mutação). O Let é o comando utilizado para criar variáveis de escopo, ou seja, variáveis que só podem ser vista dentro do escopo em que ela foi criada.
+
+- A função map serve para percorrer um arrey e retornar alguma coisa de dentro. O reduce é uma função que consome todo o arrey o transforma em uma única informação. O filter é uma função que irá fazer uma filtragem de dados baseado em alguma condição especificada. A função find é usada quando a gente quer verificar se existe alguma informação dentro do arrey.
+
+- As funções que não tem nome definido são consideradas funções anônimas e elas são os melhores lugares para se utilizar Arrow Function que é basicamente uma função escrita com uma quantidade de código bem menor e com uma sintaxe mais simples
+
+Ex:. função sem Arrow function
+
+const newArr = arr.map(function(item){
+    return item * 2;
+});
+
+
+Ex:. Função com Arrow function
+
+const newArr = arr.map(item => item * 2);
+
+- Nas arrow functions é possivel retornar qualquer tipo de dado, porém ao tentar retornar objetos deve-se colocar parênteses antes, caso contrário o compilador vai entender as chaves do objeto como o escopo da função, retornando um erro.
+
+- Outra funcionalidade padrão do ES6 é a de colocar valores padões para os parâmetros das funções, sejam elas funções normais ou Arrow Functions.
+
+- O conceito de desestruturação vem como um facilitador de busca em objetos no ES6, reduzindo bastante as linhas de código para se fazer as buscas.
+
+Ex:. Buscando em objetos sem desestruturação:
+
+const nome = usuario.nome;
+const idade = usuario.idade;
+const rua = usuario.endereco.ru
+
+Ex:. Buscando em objetos com desestruturação
+
+const {nome, idade, endereco: {rua, estado} } = usuario;
+
+- 
+
+ 

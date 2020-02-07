@@ -1,36 +1,16 @@
-class List {
-    constructor() {
-        this.data = []
-
+const usuario = {
+    nome: 'Daniel',
+    idade: '21',
+    endereco: {
+        rua: "Laura Campelo",
+        estado: 'PE'
     }
-    
-    add(data) {
-        this.data.push(data);
-        console.log(this.data);
-
-    }
-}
+};
 
 
-class TodoList extends List {
-    constructor() {
-        super();
-        this.usuario = 'Daniel';
-    }
+const {nome, idade, endereco: {rua, estado} } = usuario;
 
-    mostraUsuario () {
-        console.log(this.usuario);
-    }
-
-
-   
-    }
-
-
-var MinhaLista = new TodoList();
-
-document.getElementById('novoTodo').onclick = function() {
-    MinhaLista.add("Novo Todo");
-}
-
-MinhaLista.mostraUsuario();
+console.log(nome);
+console.log(idade);
+console.log(rua);
+console.log(estado);
