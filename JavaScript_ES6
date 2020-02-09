@@ -50,6 +50,9 @@ Ex:. Buscando em objetos com desestruturação
 
 const {nome, idade, endereco: {rua, estado} } = usuario;
 
+- Os operadores rest e spread são caracterizados pelo uso dos três pontos (...). O rest pode ser utilizado pra assumir mais de um valor em uma única variavel na hora de uma busca seja em objeto ou em arrey, como se fosse o resto de uma prorpiedade, também pode ser utilizado como parâmetro de uma função. Já o spread faz uma função diferente do rest, enquanto o rest faz o papel de pegar o resto de alguma desestruturação, o spread faz o papel de propagar, repassar as informações de algum objeto ou arrey para outra esturtura de dados. 
+
 - 
+
 
  
