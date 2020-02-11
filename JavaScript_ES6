@@ -52,7 +52,23 @@ const {nome, idade, endereco: {rua, estado} } = usuario;
 
 - Os operadores rest e spread são caracterizados pelo uso dos três pontos (...). O rest pode ser utilizado pra assumir mais de um valor em uma única variavel na hora de uma busca seja em objeto ou em arrey, como se fosse o resto de uma prorpiedade, também pode ser utilizado como parâmetro de uma função. Já o spread faz uma função diferente do rest, enquanto o rest faz o papel de pegar o resto de alguma desestruturação, o spread faz o papel de propagar, repassar as informações de algum objeto ou arrey para outra esturtura de dados. 
 
-- 
+- A funcionalidade Template Literals permite que seja incluido variáveis dentro de strings de forma mais simples, usando crase (``) para digitar a string e quando for incluir a variável utilizar o (${variável}). Dessa forma utlizamos menos códigos e evitamos de usar várias concatenações.
+
+Ex:. Tamplate Literals
+
+console.log(`Meu nome é ${nome} e tenho ${idade}`);
+
+- A sintaxe curta de objeto (object short syntax) do ES6 permite que quando o nome da propriedade do objeto é igual ao nome da variável, pode-se deixar somente o nome da variável sem a utilização dos dois pontos.
+
+- O Webpack é um serviço que vai possibilitar que trabalhemos com varios arquivos .js na nossa aplicação. Então em vez de termos somente o arquivo main.js poderemos ter varias pastas de arquivos .js alem de arquivos de imagem, CSS, JSON entre outros atraveś do javaScript utilizando o WebPack e ainda sim todo esse código será transformado em um arquivo bundle.js.
+
+- No arquivo package.json a parte de 'dependeces' foi alterada para 'devDependeces' pelo fato de todas as dependências usadas até agora serem exclusivas para a parte de desenvolvimento, não sendo necessárias na parte de produção (online) uma vez que, na parte de produção será enviado somente o arquivo bundle.js. Com isso todas as dependencias instaladas para a parte de desenvolvimento devem ser instaladas com o '-D' no final que indicará que elas devem ir para o 'devDependeces'.
+
+- O arquivo de configuração do webpack é o webpack.config.js e nele nós iremos configurar a forma como o webpack vai funcionar. toda configuração estará dentro do module.exports e a primeira prorpiedade é o "entry" que basicamente vai falar qual o arquivo principal do projeto. Depois vem o 'output' que é pra onde deve ser transferido o código sem a sintaxe do ES6, dentro do "output" é necesário passar duas prorpiedades, o "path" que será passado a variável "__dirname" que é uma variável global que referencia toda a pasta onde se encontra o arquivo "webpack.config.js", e a segunda propriedade é o "filename" que nada mais é do que o nome do arquivo "bundle.js" por exemplo.
+
+- Depois de configurar o "output" tem uma nova configuração chamada "modules" que tem uma propriedade chamada "rules" que é obrigatória que vai dizer como o webpack deve se comportar quando o usuário estiver tentando importar novos arquivos .js, dentro do 'rules' vamos informar qual loader que será utilizado, nesse caso o 'babel' que é um loader, ou seja uma forma de manipular o conteúdo do arquivo e fazer algum tipo de alteração. Dentro do rules será passado um test que será criado uma expressão regular para buscar se o arquivo termina com .js "/\.js$/" (o sinal de dolar significa o sinal e as duas barras a expressão regular). Após o test será passado um 'exclude' passando a pasta node_modules dentro para que o babel não execute nenhum arquivo .js de dentro da pasta node_modules e somente os arquivos do projeto. Depois vem a configuração 'use' que dentro terá a configuração loader que será passado nesse caso o 'babel-loader'.
+
+
 
 
  
