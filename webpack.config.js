@@ -1,19 +1,24 @@
 module.exports = {
-
-    entry : './main.js',
+    entry: './src/main.js',  
     output: {
-        path: __dirname,
-        filename: 'bundle.js',
+        path: __dirname + './public',
+        filename: 'bundle.js'
+    },
+    devServer: {
+        contentBase: __dirname + './public',
     },
     module: {
-        rules:
+        rules: [
             {
                 test: /\.js$/,
                 exclude: /node_modules/,
                 use: {
-                    loader: 'babel-loader',
+                    loader: 'babel-loader'
                 }
-            }   
+            }
+        ],
+        
+        
     },
 
 };

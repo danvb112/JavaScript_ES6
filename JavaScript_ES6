@@ -68,7 +68,23 @@ console.log(`Meu nome é ${nome} e tenho ${idade}`);
 
 - Depois de configurar o "output" tem uma nova configuração chamada "modules" que tem uma propriedade chamada "rules" que é obrigatória que vai dizer como o webpack deve se comportar quando o usuário estiver tentando importar novos arquivos .js, dentro do 'rules' vamos informar qual loader que será utilizado, nesse caso o 'babel' que é um loader, ou seja uma forma de manipular o conteúdo do arquivo e fazer algum tipo de alteração. Dentro do rules será passado um test que será criado uma expressão regular para buscar se o arquivo termina com .js "/\.js$/" (o sinal de dolar significa o sinal e as duas barras a expressão regular). Após o test será passado um 'exclude' passando a pasta node_modules dentro para que o babel não execute nenhum arquivo .js de dentro da pasta node_modules e somente os arquivos do projeto. Depois vem a configuração 'use' que dentro terá a configuração loader que será passado nesse caso o 'babel-loader'.
 
+- A partir do momento que usamos o 'export' antes de uma função, variável, classe, etc, é possível importar ela com o mesmo nome para qualquer outro arquivo com um 'import {variavel} from './arquivo' '. Também existe o 'export default' que é o export padrão e cada arquivo só pode ter um, para fazer um import nesse caso não precisa das chaves e pode-se dar o nome que quiser para a função na hora da importação.
 
+- Outra coisa interessante é que num mesmo arquivo pode-se ter um export default e outros exports normais também, mudando apenas a sintaxe na hora da importação
+
+- Para deixar o projeto mais organizado é bom separar em duas pastas, uma chamada src onde ficará todo o código javaScript da aplicação e outra pasta chamada public onde ficarão todos os arquivos que não serão trabalhados diretamente com a parte do webpack, logo, na pasta src ficarão todos os arquivos que o webpack precisa monitorar as mudanças enquanto no public ficarão os arquivos que não precisam de monitoração pelo webpack.
+
+- Instalado o webpack dev server uma nova configuração surge para o arquivo webpack.config.js chamada 'devServer' que tem a propriedade 'contentBase' que é basicamente qual o caminho que deve ser aberto o servidor da aplicação, geralmente esse caminho é a pasta onde fica o arquivo index.html.
+
+- O webpack-dev-server imbute o arquivo bundle.js sozinho fazendo-o não aparecer, caso deseje que ele seja mostrado deve-se criar um novo script com o webpack em modo de produção.
+
+- A grande utilidade do webpack-dev-server é que ele monitora qualquer alteração feita no código JavaScript e atualiza a pagina automaticamente para que você veja o resultado em tela.
+
+- A partir do ES8 é possível usar a sintaxe do Async/await que deixa o código bem mais limpo quando vai se trabalhar com assincronismo dentro do JavaScript. Em vez de termos que ficar trabalhando com .then e .cath o tempo todo definimos uma função como 'async' que irá executar a promise e dentro dela definimos uma variável "response" e definimos ela como "await" e colocamos o nome da função que irá retornar a promise. Dessa forma podemos trabalhar quantas vezes quisermos com o "await".
+
+- Quando criamos uma async function essa função automaticamente vira uma promise. E nunca o await poderá ser usando sem estar dentro de uma função async. O async/await também pode ser usado com arrow functions.
+
+-
 
 
  
