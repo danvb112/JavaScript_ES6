@@ -82,9 +82,9 @@ console.log(`Meu nome é ${nome} e tenho ${idade}`);
 
 - A partir do ES8 é possível usar a sintaxe do Async/await que deixa o código bem mais limpo quando vai se trabalhar com assincronismo dentro do JavaScript. Em vez de termos que ficar trabalhando com .then e .cath o tempo todo definimos uma função como 'async' que irá executar a promise e dentro dela definimos uma variável "response" e definimos ela como "await" e colocamos o nome da função que irá retornar a promise. Dessa forma podemos trabalhar quantas vezes quisermos com o "await".
 
-- Quando criamos uma async function essa função automaticamente vira uma promise. E nunca o await poderá ser usando sem estar dentro de uma função async. O async/await também pode ser usado com arrow functions.
+- Quando criamos uma async function essa função automaticamente vira uma promise. E nunca o await poderá ser usando sem estar dentro de uma função async. O async/await também pode ser usado com arrow functions. A forma que o async/await usa para buscar os erros é através do try/catch Sendo catch responsavel pelos erros caso ocorram.
 
--
+- Uma bora prática é usar o axios em conjunto do async/await deixando a sintaxe muito mais simples e diminuindo bastante o código.
 
-
+- 
  
