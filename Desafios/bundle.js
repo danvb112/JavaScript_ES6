@@ -1,14 +1,10 @@
 "use strict";
 
+var nome = "Diego";
+var idade = 23;
 var usuario = {
-  nome: "Diego",
-  idade: "23"
+  nome: nome,
+  idade: idade,
+  cidade: "Rio do Sul"
 };
-var nome = usuario.nome,
-    idade = usuario.idade;
-
-function mostrainfo(nome, idade) {
-  return console.log("".concat(nome, " tem ").concat(idade, " anos."));
-}
-
-mostrainfo(nome, idade);
+console.log(usuario);
