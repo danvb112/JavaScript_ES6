@@ -1,31 +1,14 @@
 "use strict";
 
-var usuarios = [{
-  nome: 'Diego',
-  idade: 23,
-  empresa: 'Rocketseat'
-}, {
-  nome: "Gabriel",
-  idade: 15,
-  empresa: "Rocketseat"
-}, {
-  nome: "Lucas",
-  idade: 30,
-  empresa: "Facebook"
-}];
-var newUsuarios = usuarios.map(function (usuario) {
-  return usuario.idade * 2;
-});
+var usuario = {
+  nome: "Diego",
+  idade: "23"
+};
+var nome = usuario.nome,
+    idade = usuario.idade;
 
-function buscarUsuario(newUsuarios) {
-  var funcionarios = newUsuarios.filter(function funcionario(usuario) {
-    if (usuario.idade <= 50) {
-      return console.log(usuario);
-    } else {
-      return console.log(undefined);
-    }
-  });
+function mostrainfo(nome, idade) {
+  return console.log("".concat(nome, " tem ").concat(idade, " anos."));
 }
 
-;
-buscarUsuario(usuarios);
+mostrainfo(nome, idade);

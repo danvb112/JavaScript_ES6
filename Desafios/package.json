@@ -14,6 +14,6 @@
     "babel-loader": "^8.0.6"
   },
   "scripts": {
-    "dev": "babel exercicio2.4.js -o bundle.js -w"
+    "dev": "babel exercicio4.2.js -o bundle.js -w"
   }
 }
