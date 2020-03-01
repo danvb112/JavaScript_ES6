@@ -37,6 +37,20 @@ function () {
       };
     }
   }, {
+    key: "setLoading",
+    value: function setLoading() {
+      var loading = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : true;
+
+      if (loading === true) {
+        var loadingElm = document.createElement('span');
+        loadingElm.appendChild(document.createTextNode("Carregando"));
+        loadingElm.setAttribute('id', 'loading');
+        this.formElm.appendChild(loadingElm);
+      } else {
+        document.getElementById('loading').remove();
+      }
+    }
+  }, {
     key: "addReposiroty",
     value: function () {
       var _addReposiroty = _asyncToGenerator(
@@ -60,10 +74,12 @@ function () {
 
               case 4:
                 ;
-                _context.next = 7;
+                this.setLoading();
+                _context.prev = 6;
+                _context.next = 9;
                 return _api["default"].get("/repos/".concat(repoInput));
 
-              case 7:
+              case 9:
                 response = _context.sent;
                 _response$data = response.data, name = _response$data.name, description = _response$data.description, html_url = _response$data.html_url, avatar_url = _response$data.owner.avatar_url;
                 this.repositories.push({
@@ -74,13 +90,23 @@ function () {
                 });
                 this.inputElm.value = '';
                 this.render();
+                _context.next = 19;
+                break;
 
-              case 12:
+              case 16:
+                _context.prev = 16;
+                _context.t0 = _context["catch"](6);
+                alert("O repositório não existe!");
+
+              case 19:
+                this.setLoading(false);
+
+              case 20:
               case "end":
                 return _context.stop();
             }
           }
-        }, _callee, this);
+        }, _callee, this, [[6, 16]]);
       }));
 
       function addReposiroty(_x) {
