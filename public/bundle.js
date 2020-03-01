@@ -1,6 +1,6 @@
 "use strict";
 
-var _axios = _interopRequireDefault(require("axios"));
+var _api = _interopRequireDefault(require("./api.js"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
 
@@ -14,57 +14,110 @@ function _defineProperties(target, props) { for (var i = 0; i < props.length; i+
 
 function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
 
-var Api =
+var App =
 /*#__PURE__*/
 function () {
-  function Api() {
-    _classCallCheck(this, Api);
+  function App() {
+    _classCallCheck(this, App);
+
+    this.repositories = [];
+    this.formElm = document.getElementById("repo_form");
+    this.listElm = document.getElementById('repo_list');
+    this.inputElm = document.querySelector('input[name=repository]');
+    this.registerHendlers();
   }
 
-  _createClass(Api, null, [{
-    key: "getUserInfo",
+  _createClass(App, [{
+    key: "registerHendlers",
+    value: function registerHendlers() {
+      var _this = this;
+
+      this.formElm.onsubmit = function (event) {
+        return _this.addReposiroty(event);
+      };
+    }
+  }, {
+    key: "addReposiroty",
     value: function () {
-      var _getUserInfo = _asyncToGenerator(
+      var _addReposiroty = _asyncToGenerator(
       /*#__PURE__*/
-      regeneratorRuntime.mark(function _callee(username) {
-        var response;
+      regeneratorRuntime.mark(function _callee(event) {
+        var repoInput, response, _response$data, name, description, html_url, avatar_url;
+
         return regeneratorRuntime.wrap(function _callee$(_context) {
           while (1) {
             switch (_context.prev = _context.next) {
               case 0:
-                _context.prev = 0;
-                _context.next = 3;
-                return _axios["default"].get("https://api.github.com/users/".concat(username));
+                event.preventDefault();
+                repoInput = this.inputElm.value;
 
-              case 3:
-                response = _context.sent;
-                console.log(response);
-                _context.next = 10;
-                break;
+                if (!(repoInput === 0)) {
+                  _context.next = 4;
+                  break;
+                }
+
+                return _context.abrupt("return");
+
+              case 4:
+                ;
+                _context.next = 7;
+                return _api["default"].get("/repos/".concat(repoInput));
 
               case 7:
-                _context.prev = 7;
-                _context.t0 = _context["catch"](0);
-                console.warn("ERRO NA API");
+                response = _context.sent;
+                _response$data = response.data, name = _response$data.name, description = _response$data.description, html_url = _response$data.html_url, avatar_url = _response$data.owner.avatar_url;
+                this.repositories.push({
+                  name: name,
+                  description: description,
+                  avatar_url: avatar_url,
+                  html_url: html_url
+                });
+                this.inputElm.value = '';
+                this.render();
 
-              case 10:
+              case 12:
               case "end":
                 return _context.stop();
             }
           }
-        }, _callee, null, [[0, 7]]);
+        }, _callee, this);
       }));
 
-      function getUserInfo(_x) {
-        return _getUserInfo.apply(this, arguments);
+      function addReposiroty(_x) {
+        return _addReposiroty.apply(this, arguments);
       }
 
-      return getUserInfo;
+      return addReposiroty;
     }()
+  }, {
+    key: "render",
+    value: function render() {
+      var _this2 = this;
+
+      this.listElm.innerHTML = '';
+      this.repositories.forEach(function (repo) {
+        var imgEL = document.createElement("img");
+        imgEL.setAttribute('src', repo.avatar_url);
+        var titleEl = document.createElement('strong');
+        titleEl.appendChild(document.createTextNode(repo.name));
+        var descriptionEl = document.createElement('p');
+        descriptionEl.appendChild(document.createTextNode(repo.description));
+        var linkEl = document.createElement("a");
+        linkEl.setAttribute('target', '_blank');
+        linkEl.setAttribute("href", repo.html_url);
+        linkEl.appendChild(document.createTextNode("Acessar"));
+        var listItemEl = document.createElement('li');
+        listItemEl.appendChild(imgEL);
+        listItemEl.appendChild(titleEl);
+        listItemEl.appendChild(descriptionEl);
+        listItemEl.appendChild(linkEl);
+
+        _this2.listElm.appendChild(listItemEl);
+      });
+    }
   }]);
 
-  return Api;
+  return App;
 }();
 
-;
-Api.getUserInfo('danvb112');
+new App();
